@@ -1,19 +1,20 @@
-package maciek.islands;
+package maciek.islands.impl;
 
-import static maciek.islands.CoastlineFragment.Turn.FORWARD;
-import static maciek.islands.CoastlineFragment.Turn.LEFT;
-import static maciek.islands.CoastlineFragment.Turn.RIGHT;
+import static maciek.islands.impl.CoastlineFragment.Turn.FORWARD;
+import static maciek.islands.impl.CoastlineFragment.Turn.LEFT;
+import static maciek.islands.impl.CoastlineFragment.Turn.RIGHT;
 
-import maciek.islands.CoastlineFragment.Turn;
+import maciek.islands.OceanMap;
+import maciek.islands.impl.CoastlineFragment.Turn;
 
 /**
  * Follows consecutive coastline fragments.
  */
 public class CoastlineFollower {
 
-	private final WorldMap map;
+	private final OceanMap map;
 
-	public CoastlineFollower(WorldMap map) {
+	public CoastlineFollower(OceanMap map) {
 		this.map = map;
 	}
 

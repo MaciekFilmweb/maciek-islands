@@ -1,30 +1,27 @@
-package maciek.islands;
+package maciek.islands.impl;
 
 import lombok.Builder;
-import maciek.islands.CoastlineFragment.Orientation;
+import maciek.islands.Field;
+import maciek.islands.OceanMap;
+import maciek.islands.impl.CoastlineFragment.Orientation;
 
 /**
- * It starts from any field of given island and searches for the field of the island that would be encountered last if
- * following given {@linkplain FieldSequence}.
- * <p>
- * It requires {@linkplain CoastlineFieldSearch} that can find coastline field that would be encountered latest.
+ * It starts from any field of given island and searches for the field of the island that would be encountered last by
+ * given {@linkplain FieldSearchingSequence}.
  */
 @Builder
 public class IslandFieldSearchImpl implements IslandFieldSearch {
 
-	private final WorldMap map;
+	private final OceanMap map;
 
 	private final CoastlineFieldSearch coastlineFieldSearch;
 
-	private final FieldSequence sequence;
+	private final FieldSearchingSequence sequence;
 
-	public static IslandFieldSearchImpl create(WorldMap map, FieldSequence fieldSequence) {
+	public static IslandFieldSearchImpl create(OceanMap map, FieldSearchingSequence fieldSequence) {
 		return IslandFieldSearchImpl.builder()
 		        .map(map)
-		        .coastlineFieldSearch(CoastlineFieldSearchImpl.builder()
-		                .consumer(new FieldSequenceFieldConsumer(fieldSequence))
-		                .follower(new CoastlineFollower(map))
-		                .build())
+		        .coastlineFieldSearch(CoastlineFieldSearchImpl.create(map))
 		        .sequence(fieldSequence)
 		        .build();
 	}
@@ -32,17 +29,19 @@ public class IslandFieldSearchImpl implements IslandFieldSearch {
 	@Override
 	public Field search(Field anyIslandField) {
 
-		Field localBottomRight = findLocalBest(anyIslandField);
+		FieldSequenceCoastlineFieldConsumer consumer = new FieldSequenceCoastlineFieldConsumer(sequence);
+
+		Field localBest = findLocalBest(anyIslandField);
 
 		while (true) {
 			CoastlineSearchResult result = coastlineFieldSearch
-			        .search(CoastlineFragment.of(localBottomRight, Orientation.LAND_ON_LEFT));
+			        .search(CoastlineFragment.of(localBest, Orientation.LAND_ON_LEFT), consumer);
 
 			if (!result.isLake()) {
 				return result.getSearchedField();
 			}
 
-			localBottomRight = findLocalBest(result.getSearchedField());
+			localBest = findLocalBest(result.getSearchedField());
 		}
 	}
 

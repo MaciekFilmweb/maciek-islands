@@ -1,13 +1,13 @@
-package maciek.islands.testutils;
+package maciek.islands.impl.testutils;
 
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
-import maciek.islands.CoastlineFragment;
-import maciek.islands.CoastlineFragment.Orientation;
 import maciek.islands.Field;
+import maciek.islands.impl.CoastlineFragment;
+import maciek.islands.impl.CoastlineFragment.Orientation;
 
 public class ExpectedCoastlineFragmentsBuilder {
 

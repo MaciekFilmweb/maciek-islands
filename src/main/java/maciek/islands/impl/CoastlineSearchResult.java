@@ -1,10 +1,13 @@
-package maciek.islands;
+package maciek.islands.impl;
 
 import lombok.RequiredArgsConstructor;
+import maciek.islands.Field;
 
 /**
- * Indicates if the searched coastline is a coastline of an inside lake or the island's outer coastline. Also provides
- * the coastline searched field (e.g. most bottom-left field).
+ * Indicates if the searched coastline is a coastline of an inside lake or the island's outer coastline.
+ * <p>
+ * Also contains field chosen from all the coastline fields by {@linkplain CoastlineFieldConsumer} (e.g. most
+ * bottom-left field).
  */
 @RequiredArgsConstructor(staticName = "of")
 public class CoastlineSearchResult {

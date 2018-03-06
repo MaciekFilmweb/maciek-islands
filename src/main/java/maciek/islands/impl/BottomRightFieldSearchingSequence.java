@@ -1,14 +1,15 @@
-package maciek.islands;
+package maciek.islands.impl;
 
 import java.math.BigInteger;
+
+import maciek.islands.Field;
 
 /**
  * <pre>
  * (0, 0), (0, 1), (1, 1), (1, 0), (0, 2), (1, 2), (2, 2), (2, 1), (2, 0), (0, 3), etc.
- * 
  * <pre>
  */
-public class BottomRightSequence implements FieldSequence {
+public class BottomRightFieldSearchingSequence implements FieldSearchingSequence {
 
 	@Override
 	public Field getFieldEncounteredLater(Field field1, Field field2) {

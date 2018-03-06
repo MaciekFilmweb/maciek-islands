@@ -1,16 +1,18 @@
-package maciek.islands;
+package maciek.islands.impl;
 
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_LEFT;
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_RIGHT;
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_TOP;
-import static maciek.islands.CoastlineFragment.Turn.FORWARD;
-import static maciek.islands.CoastlineFragment.Turn.LEFT;
-import static maciek.islands.CoastlineFragment.Turn.RIGHT;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_LEFT;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_RIGHT;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_TOP;
+import static maciek.islands.impl.CoastlineFragment.Turn.FORWARD;
+import static maciek.islands.impl.CoastlineFragment.Turn.LEFT;
+import static maciek.islands.impl.CoastlineFragment.Turn.RIGHT;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
+import maciek.islands.Field;
+import maciek.islands.OceanMap;
 
 @Data
 @RequiredArgsConstructor(staticName = "of")
@@ -21,7 +23,7 @@ public class CoastlineFragment {
 
 	private final Orientation orientation;
 
-	private final int convexity;
+	private final int convexity; // TODO remove it from here
 
 	public static CoastlineFragment of(Field land, Orientation orientation) {
 		return CoastlineFragment.of(land, orientation, 0);
@@ -66,14 +68,13 @@ public class CoastlineFragment {
 			return new CoastlineFragment(land.down().right(), LAND_ON_BOTTOM, convexity - 1);
 		}
 		if (orientation == LAND_ON_LEFT && turn == RIGHT) {
-
 			return new CoastlineFragment(land, LAND_ON_TOP, convexity + 1);
 		}
 
 		throw new RuntimeException();
 	}
 
-	public boolean check(WorldMap map) {
+	public boolean check(OceanMap map) {
 
 		if (orientation == LAND_ON_TOP) {
 			return map.isLand(land) && !map.isLand(land.down());

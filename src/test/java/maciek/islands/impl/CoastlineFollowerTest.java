@@ -1,24 +1,27 @@
-package maciek.islands;
+package maciek.islands.impl;
 
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_LEFT;
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_RIGHT;
-import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_TOP;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_LEFT;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_RIGHT;
+import static maciek.islands.impl.CoastlineFragment.Orientation.LAND_ON_TOP;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import org.junit.Test;
 
-import maciek.islands.testutils.ExpectedCoastlineFragmentsBuilder;
-import maciek.islands.testutils.FormattedStringWorldMap;
+import maciek.islands.Field;
+import maciek.islands.impl.CoastlineFollower;
+import maciek.islands.impl.CoastlineFragment;
+import maciek.islands.impl.testutils.ExpectedCoastlineFragmentsBuilder;
+import maciek.islands.impl.testutils.FormattedStringOceanMap;
 
 public class CoastlineFollowerTest {
 
 	@Test
 	public void testSimpleCase() throws Exception {
 
-		FormattedStringWorldMap map = new FormattedStringWorldMap(
+		FormattedStringOceanMap map = new FormattedStringOceanMap(
 		        		"ooooooo\n" +
 		                "oooxooo\n" +
 		                "oooxooo\n" +
@@ -51,7 +54,7 @@ public class CoastlineFollowerTest {
 	@Test
 	public void testComplexCase() throws Exception {
 
-		FormattedStringWorldMap map = new FormattedStringWorldMap(
+		FormattedStringOceanMap map = new FormattedStringOceanMap(
 		        		"_______\n" +
 		                "_______\n" +
 		                "_xx_xx_\n" +

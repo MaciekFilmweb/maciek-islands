@@ -1,6 +1,6 @@
 package maciek.islands;
 
-public interface WorldMap {
+public interface OceanMap {
 	
 	boolean isLand(Field field);
 

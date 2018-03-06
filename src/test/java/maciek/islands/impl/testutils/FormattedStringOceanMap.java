@@ -1,16 +1,16 @@
-package maciek.islands.testutils;
+package maciek.islands.impl.testutils;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import maciek.islands.Field;
-import maciek.islands.WorldMap;
+import maciek.islands.OceanMap;
 
-public class FormattedStringWorldMap implements WorldMap {
+public class FormattedStringOceanMap implements OceanMap {
 	
 	private Set<Field> lands = new HashSet<>();
 	
-	public FormattedStringWorldMap(String formattedString) {
+	public FormattedStringOceanMap(String formattedString) {
 		int y = formattedString.split("\n").length - 1;
 		int x = 0;
 		for (char ch : formattedString.toCharArray()) {

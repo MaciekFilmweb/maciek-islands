@@ -1,15 +1,18 @@
-package maciek.islands;
+package maciek.islands.impl;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class BottomRightSequenceTest {
+import maciek.islands.Field;
+import maciek.islands.impl.BottomRightFieldSearchingSequence;
+
+public class BottomRightFieldSearchingSequenceTest {
 	
 	@Test
 	public void testComparingFields() throws Exception {
 		
-		BottomRightSequence sequence = new BottomRightSequence();
+		BottomRightFieldSearchingSequence sequence = new BottomRightFieldSearchingSequence();
 		
 		assertEquals(Field.of(1, 1), sequence.getFieldEncounteredLater(Field.of(0, 0), Field.of(1, 1)));
 		assertEquals(Field.of(2, 0), sequence.getFieldEncounteredLater(Field.of(0, 2), Field.of(2, 0)));
@@ -20,7 +23,7 @@ public class BottomRightSequenceTest {
 	@Test
 	public void testSequenceFields() {
 		
-		BottomRightSequence sequence = new BottomRightSequence();
+		BottomRightFieldSearchingSequence sequence = new BottomRightFieldSearchingSequence();
 		
 		assertEquals(Field.of(0, 0), sequence.getFirstField());
 		assertEquals(Field.of(0, 1), sequence.getNextField(Field.of(0, 0)));

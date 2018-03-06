@@ -1,25 +1,21 @@
-package maciek.islands;
+package maciek.islands.impl;
 
 import com.google.common.base.Objects;
 
-import lombok.Builder;
+import lombok.RequiredArgsConstructor;
+import maciek.islands.OceanMap;
 
-@Builder
+@RequiredArgsConstructor
 public class CoastlineFieldSearchImpl implements CoastlineFieldSearch {
 
 	private final CoastlineFollower follower;
 
-	private final CoastlineFieldConsumer consumer;
-
-	public static CoastlineFieldSearchImpl create(WorldMap map, FieldSequence sequence) {
-		return CoastlineFieldSearchImpl.builder()
-		        .follower(new CoastlineFollower(map))
-		        .consumer(new FieldSequenceFieldConsumer(sequence))
-		        .build();
+	public static CoastlineFieldSearchImpl create(OceanMap map) {
+		return new CoastlineFieldSearchImpl(new CoastlineFollower(map));
 	}
 
 	@Override
-	public CoastlineSearchResult search(CoastlineFragment first) {
+	public CoastlineSearchResult search(CoastlineFragment first, CoastlineFieldConsumer consumer) {
 		CoastlineFragment next = first;
 		do {
 			next = follower.follow(next);
