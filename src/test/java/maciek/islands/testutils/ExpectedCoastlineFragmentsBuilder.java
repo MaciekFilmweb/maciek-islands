@@ -5,9 +5,9 @@ import java.util.List;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
+import maciek.islands.CoastlineFragment;
+import maciek.islands.CoastlineFragment.Orientation;
 import maciek.islands.Field;
-import maciek.islands.coastline.CoastlineFragment;
-import maciek.islands.coastline.CoastlineFragment.Orientation;
 
 public class ExpectedCoastlineFragmentsBuilder {
 

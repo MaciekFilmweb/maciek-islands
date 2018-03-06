@@ -1,16 +1,15 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_LEFT;
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_RIGHT;
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_TOP;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_LEFT;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_RIGHT;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_TOP;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import org.junit.Test;
 
-import maciek.islands.Field;
 import maciek.islands.testutils.ExpectedCoastlineFragmentsBuilder;
 import maciek.islands.testutils.FormattedStringWorldMap;
 

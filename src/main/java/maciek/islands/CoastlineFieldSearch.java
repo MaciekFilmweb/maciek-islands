@@ -1,10 +1,8 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
 import java.util.function.Consumer;
 
-import maciek.islands.Field;
-
-public interface CoastlineSearch {
+public interface CoastlineFieldSearch {
 
 	/**
 	 * Performs analysis of coastline starting from provided {@linkplain CoastlineFragment}.

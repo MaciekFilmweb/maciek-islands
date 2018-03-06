@@ -1,18 +1,16 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_LEFT;
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_RIGHT;
-import static maciek.islands.coastline.CoastlineFragment.Orientation.LAND_ON_TOP;
-import static maciek.islands.coastline.CoastlineFragment.Turn.FORWARD;
-import static maciek.islands.coastline.CoastlineFragment.Turn.LEFT;
-import static maciek.islands.coastline.CoastlineFragment.Turn.RIGHT;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_BOTTOM;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_LEFT;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_RIGHT;
+import static maciek.islands.CoastlineFragment.Orientation.LAND_ON_TOP;
+import static maciek.islands.CoastlineFragment.Turn.FORWARD;
+import static maciek.islands.CoastlineFragment.Turn.LEFT;
+import static maciek.islands.CoastlineFragment.Turn.RIGHT;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
-import maciek.islands.Field;
-import maciek.islands.WorldMap;
 
 @Data
 @RequiredArgsConstructor(staticName = "of")

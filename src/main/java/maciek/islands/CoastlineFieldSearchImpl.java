@@ -1,16 +1,22 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
 import com.google.common.base.Objects;
 
 import lombok.Builder;
-import maciek.islands.Field;
 
 @Builder
-public class CoastlineSearchImpl implements CoastlineSearch {
+public class CoastlineFieldSearchImpl implements CoastlineFieldSearch {
 
 	private final CoastlineFollower follower;
 
 	private final CoastlineFieldConsumer consumer;
+
+	public static CoastlineFieldSearchImpl create(WorldMap map, FieldSequence sequence) {
+		return CoastlineFieldSearchImpl.builder()
+		        .follower(new CoastlineFollower(map))
+		        .consumer(new FieldSequenceFieldConsumer(sequence))
+		        .build();
+	}
 
 	@Override
 	public CoastlineSearchResult search(CoastlineFragment first) {
@@ -31,33 +37,6 @@ public class CoastlineSearchImpl implements CoastlineSearch {
 			return true;
 		}
 		throw new RuntimeException("Bug in convexity calculating logic!");
-	}
-
-	public static class MostBottomRightCoastlineFieldConsumer implements CoastlineFieldConsumer {
-
-		private Field mostBottomRightField = null;
-
-		@Override
-		public void accept(Field field) {
-			if (mostBottomRightField == null) {
-				mostBottomRightField = field;
-				return;
-			}
-			if (mostBottomRightField.getX().compareTo(field.getX()) < 0) {
-				mostBottomRightField = field;
-				return;
-			}
-			if (mostBottomRightField.getY().compareTo(field.getY()) > 0) {
-				mostBottomRightField = field;
-				return;
-			}
-		}
-
-		@Override
-		public Field getField() {
-			return mostBottomRightField;
-		}
-
 	}
 
 }

@@ -1,11 +1,10 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
-import static maciek.islands.coastline.CoastlineFragment.Turn.FORWARD;
-import static maciek.islands.coastline.CoastlineFragment.Turn.LEFT;
-import static maciek.islands.coastline.CoastlineFragment.Turn.RIGHT;
+import static maciek.islands.CoastlineFragment.Turn.FORWARD;
+import static maciek.islands.CoastlineFragment.Turn.LEFT;
+import static maciek.islands.CoastlineFragment.Turn.RIGHT;
 
-import maciek.islands.WorldMap;
-import maciek.islands.coastline.CoastlineFragment.Turn;
+import maciek.islands.CoastlineFragment.Turn;
 
 /**
  * Follows consecutive coastline fragments.

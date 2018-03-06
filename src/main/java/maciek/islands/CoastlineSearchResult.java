@@ -1,7 +1,6 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
 import lombok.RequiredArgsConstructor;
-import maciek.islands.Field;
 
 /**
  * Indicates if the searched coastline is a coastline of an inside lake or the island's outer coastline. Also provides

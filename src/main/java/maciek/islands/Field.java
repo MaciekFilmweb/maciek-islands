@@ -1,6 +1,10 @@
 package maciek.islands;
 
 import java.math.BigInteger;
+import java.util.List;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableList.Builder;
 
 import lombok.Data;
 
@@ -12,7 +16,11 @@ public class Field {
 	private final BigInteger y;
 
 	public static Field of(int x, int y) {
-		return new Field(BigInteger.valueOf(x), BigInteger.valueOf(y));
+		return Field.of(BigInteger.valueOf(x), BigInteger.valueOf(y));
+	}
+
+	public static Field of(BigInteger x, BigInteger y) {
+		return new Field(x, y);
 	}
 
 	public Field up() {
@@ -29,6 +37,30 @@ public class Field {
 
 	public Field right() {
 		return new Field(x.add(BigInteger.ONE), y);
+	}
+
+	public List<Field> getNeighbouringFields() {
+		Builder<Field> builder = ImmutableList.<Field>builder();
+
+		if (!BigInteger.ZERO.equals(x)) {
+			builder
+			        .add(up().left())
+			        .add(left());
+		}
+		if (!BigInteger.ZERO.equals(y)) {
+			builder
+			        .add(down())
+			        .add(down().right());
+		}
+		if (!BigInteger.ZERO.equals(x) && !BigInteger.ZERO.equals(y)) {
+			builder
+			        .add(down().left());
+		}
+		return builder
+		        .add(up())
+		        .add(up().right())
+		        .add(right())
+		        .build();
 	}
 
 }

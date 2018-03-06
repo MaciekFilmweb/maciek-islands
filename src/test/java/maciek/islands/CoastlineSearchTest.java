@@ -1,4 +1,4 @@
-package maciek.islands.coastline;
+package maciek.islands;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,9 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import maciek.islands.Field;
-import maciek.islands.coastline.CoastlineFragment.Orientation;
-import maciek.islands.coastline.CoastlineSearchImpl.MostBottomRightCoastlineFieldConsumer;
+import maciek.islands.CoastlineFragment.Orientation;
 import maciek.islands.testutils.FormattedStringWorldMap;
 
 public class CoastlineSearchTest {
@@ -21,15 +19,14 @@ public class CoastlineSearchTest {
 		                "_______\n" +
 		                "_xx_xx_\n" +
 		                "_x_x___\n" +
-		                "_xxxxx_\n" +
-		                "______x\n");
+		                "_xxxx__\n" +
+		                "_______\n");
 
-		CoastlineSearchImpl search = new CoastlineSearchImpl(new CoastlineFollower(map),
-		        new MostBottomRightCoastlineFieldConsumer());
+		CoastlineFieldSearchImpl search = CoastlineFieldSearchImpl.create(map, new BottomRightSequence());
 
 		CoastlineSearchResult result = search.search(CoastlineFragment.of(Field.of(1, 1), Orientation.LAND_ON_RIGHT));
 
-		assertEquals(Field.of(6, 0), result.getSearchedField());
+		assertEquals(Field.of(5, 3), result.getSearchedField());
 		assertFalse(result.isLake());
 
 	}
@@ -45,9 +42,8 @@ public class CoastlineSearchTest {
 		                "_x___x_\n" +
 		                "_xxxxx_\n");
 
-		CoastlineSearchImpl search = new CoastlineSearchImpl(new CoastlineFollower(map),
-		        new MostBottomRightCoastlineFieldConsumer());
-
+		CoastlineFieldSearchImpl search = CoastlineFieldSearchImpl.create(map, new BottomRightSequence());
+		
 		CoastlineSearchResult result = search.search(CoastlineFragment.of(Field.of(1, 1), Orientation.LAND_ON_LEFT));
 
 		assertEquals(Field.of(5, 1), result.getSearchedField());

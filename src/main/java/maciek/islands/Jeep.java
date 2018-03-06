@@ -1,51 +1,70 @@
 package maciek.islands;
 
 import java.math.BigInteger;
+import java.util.HashSet;
 import java.util.Set;
 
-import maciek.islands.pattern.PatternProgressField;
-import maciek.islands.pattern.SearchPattern;
+import lombok.Builder;
 
 /**
- * This is Jeep.
+ * This is {@linkplain Jeep}.
  * <p>
- * Jeep searches for islands following given pattern.
+ * Jeep searches for islands following given {@linkplain FieldSequence}.
  * <p>
- * Jeep remembers single field from each visited island ({@linkplain IslandKeyField}), but only as long as it is
- * possible to encounter the same island again.
+ * Jeep remembers single field from each visited island (<b>key field</b>), but only as long as it is possible to
+ * encounter the same island again.
  * <p>
- * Jeep also remembers number of visited islands and the field that represents its own progress
- * ({@linkplain PatternProgressField}}).
+ * Jeep remembers number of visited islands.
  * <p>
- * Here is exact algorithm performing by Jeep:
+ * Jeep also remembers current field of its {@linkplain FieldSequence} (<b>progress field</b>).
+ * <p>
+ * Here is exact algorithm performed by Jeep:
  * 
  * <pre>
- * 1. Jeep moves to next field according to the pattern.
+ * 1. Jeep moves to next field of the sequence.
  * 2. If it is ocean go to step 1.
  * 3. If it is island find its key field.
  * 4. If jeep hasn't the island key field saved, saves it and increases the island counter.
- * 5. If it is the island key field removes it from saved fields.
+ * 5. If it is the island key field removes it from saved island key fields.
  * 6. Go to step 1.
  * </pre>
+ * 
+ * To create island <b>key field</b> Jeep requires {@linkplain IslandFieldSearch} which searches for the island's field
+ * that is the field which is visit by {@linkplain FieldSequence} last.
  */
+@Builder
 public class Jeep {
-	
-	private final SearchPattern pattern;
-	
-	private PatternProgressField progressField;
-	
-	private Set<IslandKeyField> islandsThatCanBeEncounteredAgain;
-	
-	private BigInteger islandsCounter;
-	
-	public Jeep(SearchPattern pattern) {
-		this.pattern = pattern;
-		this.progressField = pattern.getStartingField();
-	}
-	
-	public void searchNextField() {
 
+	private final FieldSequence sequence;
+
+	private final IslandFieldSearch islandKeyFieldSearch;
+
+	private final WorldMap map;
+
+	private final Set<Field> islandKeyFields = new HashSet<>();
+
+	private BigInteger islandsCounter;
+
+	private Field currentField;
+
+	public void searchNextField() {
+		currentField = getNextField();
+		if (!map.isLand(currentField)) {
+			return;
+		}
+		Field keyField = islandKeyFieldSearch.search(currentField);
+		if (!islandKeyFields.contains(keyField)) {
+			islandKeyFields.add(keyField);
+			islandsCounter = islandsCounter.add(BigInteger.ONE);
+		}
 	}
-	
-	
+
+	private Field getNextField() {
+		if (currentField == null) {
+			return sequence.getFirstField();
+		} else {
+			return sequence.getNextField(currentField);
+		}
+	}
+
 }
