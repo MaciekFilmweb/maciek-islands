@@ -1,7 +1,10 @@
-package maciek.silent8.islands;
+package maciek.islands.testutils;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import maciek.islands.Field;
+import maciek.islands.WorldMap;
 
 public class FormattedStringWorldMap implements WorldMap {
 	

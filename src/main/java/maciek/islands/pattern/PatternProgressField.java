@@ -1,6 +1,9 @@
-package maciek.silent8.islands;
+package maciek.islands.pattern;
 
 import java.math.BigInteger;
+
+import maciek.islands.Field;
+import maciek.islands.Jeep;
 
 /**
  * Field that indicates {@linkplain SearchPattern} progress.

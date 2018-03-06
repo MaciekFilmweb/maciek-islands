@@ -1,6 +1,8 @@
-package maciek.silent8.islands;
+package maciek.islands;
 
 import java.math.BigInteger;
+
+import maciek.islands.pattern.SearchPattern;
 
 /**
  * <ol>

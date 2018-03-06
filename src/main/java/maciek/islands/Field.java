@@ -1,4 +1,4 @@
-package maciek.silent8.islands;
+package maciek.islands;
 
 import java.math.BigInteger;
 

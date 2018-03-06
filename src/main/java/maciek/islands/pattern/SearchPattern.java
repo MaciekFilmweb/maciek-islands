@@ -1,4 +1,8 @@
-package maciek.silent8.islands;
+package maciek.islands.pattern;
+
+import maciek.islands.Field;
+import maciek.islands.IslandKeyField;
+import maciek.islands.Jeep;
 
 /**
  * Pattern of consecutive fields {@linkplain Jeep} is using to search for islands.

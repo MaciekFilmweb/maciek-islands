@@ -1,7 +1,10 @@
-package maciek.silent8.islands;
+package maciek.islands;
 
 import java.math.BigInteger;
 import java.util.Set;
+
+import maciek.islands.pattern.PatternProgressField;
+import maciek.islands.pattern.SearchPattern;
 
 /**
  * This is Jeep.
