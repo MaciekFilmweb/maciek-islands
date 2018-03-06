@@ -6,12 +6,12 @@ import lombok.RequiredArgsConstructor;
 import maciek.islands.OceanMap;
 
 @RequiredArgsConstructor
-public class CoastlineFieldSearchImpl implements CoastlineFieldSearch {
+public class CoastlineFieldSearcherImpl implements CoastlineFieldSearcher {
 
 	private final CoastlineFollower follower;
 
-	public static CoastlineFieldSearchImpl create(OceanMap map) {
-		return new CoastlineFieldSearchImpl(new CoastlineFollower(map));
+	public static CoastlineFieldSearcherImpl create(OceanMap map) {
+		return new CoastlineFieldSearcherImpl(new CoastlineFollower(map));
 	}
 
 	@Override

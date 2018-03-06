@@ -1,6 +1,6 @@
 package maciek.islands.impl;
 
-public interface CoastlineFieldSearch {
+public interface CoastlineFieldSearcher {
 
 	/**
 	 * Performs analysis of coastline starting from provided {@linkplain CoastlineFragment}.

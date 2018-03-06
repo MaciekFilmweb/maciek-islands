@@ -17,7 +17,7 @@ public class IslandCounterTest {
 	public void test1() throws Exception {
 
 		FormattedStringOceanMap map = new FormattedStringOceanMap(
-		        "______________\n" +
+						"______________\n" +
 		                "__xxxxxxxxxx__\n" +
 		                "__x_xx_____x__\n" +
 		                "__x__xx____x__\n" +
@@ -37,7 +37,7 @@ public class IslandCounterTest {
 	public void test2() throws Exception {
 
 		FormattedStringOceanMap map = new FormattedStringOceanMap(
-		        "xxxxxxxxxxxxxx\n" +
+						"xxxxxxxxxxxxxx\n" +
 		                "xxxxxxxxxxxxxx\n" +
 		                "xxxxxxxxxxxxxx\n" +
 		                "x____________x\n" +
@@ -57,7 +57,7 @@ public class IslandCounterTest {
 	public void test3() throws Exception {
 
 		FormattedStringOceanMap map = new FormattedStringOceanMap(
-		        "_____________x\n" +
+						"_____________x\n" +
 		                "__xxxx__xxx_x_\n" +
 		                "_xx__xxx__xx__\n" +
 		                "______________\n" +
@@ -77,7 +77,7 @@ public class IslandCounterTest {
 	public void test4() throws Exception {
 
 		FormattedStringOceanMap map = new FormattedStringOceanMap(
-		        "x__x__x__x__xx\n" +
+		        		"x__x__x__x__xx\n" +
 		                "__x__x___x__x_\n" +
 		                "_______x______\n" +
 		                "__x__x____x___\n" +
@@ -112,7 +112,7 @@ public class IslandCounterTest {
 			
 		};
 		
-		assertEquals(BigInteger.valueOf(364), new IslandsCounterImpl(Field.of(100000, 100000)).countIslands(map));
+		assertEquals(BigInteger.valueOf(900149), new IslandsCounterImpl(Field.of(5000, 5000)).countIslands(map));
 
 	}
 

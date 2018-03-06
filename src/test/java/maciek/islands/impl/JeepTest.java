@@ -31,7 +31,7 @@ public class JeepTest {
 		Jeep jeep = Jeep.builder()
 				.map(map)
 				.sequence(new BottomRightFieldSearchingSequence())
-				.islandKeyFieldSearch(IslandFieldSearchImpl.create(map, sequence))
+				.islandKeyFieldSearch(IslandFieldSearcherImpl.create(map, sequence))
 				.build();
 		
 		while (!jeep.isOnField(Field.of(100, 100))) {

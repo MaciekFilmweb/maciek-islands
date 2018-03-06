@@ -35,8 +35,8 @@ import maciek.islands.OceanMap;
  * 6. Go to step 1.
  * </pre>
  * 
- * To create island <b>key field</b> Jeep requires {@linkplain IslandFieldSearch} which searches for the island's field
- * that is the field which is visit by {@linkplain FieldSearchingSequence} last.
+ * To create island <b>key field</b> Jeep requires {@linkplain IslandFieldSearcher} which searches for the island's field
+ * that is the field which is visited by {@linkplain FieldSearchingSequence} last.
  */
 @Slf4j
 @Builder
@@ -44,7 +44,7 @@ public class Jeep {
 
 	private final FieldSearchingSequence sequence;
 
-	private final IslandFieldSearch islandKeyFieldSearch;
+	private final IslandFieldSearcher islandKeyFieldSearch;
 
 	private final OceanMap map;
 

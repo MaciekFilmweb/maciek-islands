@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import maciek.islands.Field;
 import maciek.islands.impl.BottomRightFieldSearchingSequence;
-import maciek.islands.impl.CoastlineFieldSearchImpl;
+import maciek.islands.impl.CoastlineFieldSearcherImpl;
 import maciek.islands.impl.CoastlineFragment;
 import maciek.islands.impl.CoastlineSearchResult;
 import maciek.islands.impl.CoastlineFragment.Orientation;
@@ -20,14 +20,14 @@ public class CoastlineSearchTest {
 	public void test() throws Exception {
 
 		FormattedStringOceanMap map = new FormattedStringOceanMap(
-		        "_______\n" +
+		        		"_______\n" +
 		                "_______\n" +
 		                "_xx_xx_\n" +
 		                "_x_x___\n" +
 		                "_xxxx__\n" +
 		                "_______\n");
 
-		CoastlineFieldSearchImpl search = CoastlineFieldSearchImpl.create(map);
+		CoastlineFieldSearcherImpl search = CoastlineFieldSearcherImpl.create(map);
 
 		CoastlineSearchResult result = search.search(
 		        CoastlineFragment.of(Field.of(1, 1), Orientation.LAND_ON_RIGHT), createConsumer());
@@ -41,14 +41,14 @@ public class CoastlineSearchTest {
 	public void testLake() throws Exception {
 
 		FormattedStringOceanMap map = new FormattedStringOceanMap(
-		        "_______\n" +
+		        		"_______\n" +
 		                "_xxxxx_\n" +
 		                "_x__xx_\n" +
 		                "_x_x_x_\n" +
 		                "_x___x_\n" +
 		                "_xxxxx_\n");
 
-		CoastlineFieldSearchImpl search = CoastlineFieldSearchImpl.create(map);
+		CoastlineFieldSearcherImpl search = CoastlineFieldSearcherImpl.create(map);
 
 		CoastlineSearchResult result = search.search(
 				CoastlineFragment.of(Field.of(1, 1), Orientation.LAND_ON_LEFT), createConsumer());

@@ -10,18 +10,18 @@ import maciek.islands.impl.CoastlineFragment.Orientation;
  * given {@linkplain FieldSearchingSequence}.
  */
 @Builder
-public class IslandFieldSearchImpl implements IslandFieldSearch {
+public class IslandFieldSearcherImpl implements IslandFieldSearcher {
 
 	private final OceanMap map;
 
-	private final CoastlineFieldSearch coastlineFieldSearch;
+	private final CoastlineFieldSearcher coastlineFieldSearch;
 
 	private final FieldSearchingSequence sequence;
 
-	public static IslandFieldSearchImpl create(OceanMap map, FieldSearchingSequence fieldSequence) {
-		return IslandFieldSearchImpl.builder()
+	public static IslandFieldSearcherImpl create(OceanMap map, FieldSearchingSequence fieldSequence) {
+		return IslandFieldSearcherImpl.builder()
 		        .map(map)
-		        .coastlineFieldSearch(CoastlineFieldSearchImpl.create(map))
+		        .coastlineFieldSearch(CoastlineFieldSearcherImpl.create(map))
 		        .sequence(fieldSequence)
 		        .build();
 	}

@@ -25,6 +25,9 @@ repositories {
 dependencies {
 	compile('com.google.guava:guava:24.0-jre')
 	
+	compile('org.slf4j:slf4j-api:1.7.5')
+	compile('org.slf4j:slf4j-simple:1.7.5')
+	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	
 	compileOnly('org.projectlombok:lombok:1.16.20')

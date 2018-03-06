@@ -25,7 +25,7 @@ public class IslandsCounterImpl implements IslandsCounter {
 		Jeep jeep = Jeep.builder()
 				.map(map)
 				.sequence(sequence)
-				.islandKeyFieldSearch(IslandFieldSearchImpl.create(map, sequence))
+				.islandKeyFieldSearch(IslandFieldSearcherImpl.create(map, sequence))
 				.build();
 		
 		while (!jeep.isOnField(limitField)) {

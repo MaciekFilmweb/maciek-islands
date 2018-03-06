@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import maciek.islands.Field;
 import maciek.islands.impl.BottomRightFieldSearchingSequence;
-import maciek.islands.impl.IslandFieldSearchImpl;
+import maciek.islands.impl.IslandFieldSearcherImpl;
 import maciek.islands.impl.testutils.FormattedStringOceanMap;
 
 public class BottomRightFieldSearchTest {
@@ -28,7 +28,7 @@ public class BottomRightFieldSearchTest {
                 "___xxxxxxxxx__\n" +
                 "______________\n");
 		
-		IslandFieldSearchImpl search = IslandFieldSearchImpl.create(map, new BottomRightFieldSearchingSequence());
+		IslandFieldSearcherImpl search = IslandFieldSearcherImpl.create(map, new BottomRightFieldSearchingSequence());
 		
 		assertEquals(Field.of(11, 3), search.search(Field.of(3, 4)));
 		assertEquals(Field.of(10, 9), search.search(Field.of(1, 9)));
@@ -51,7 +51,7 @@ public class BottomRightFieldSearchTest {
                 "x____x________\n" +
                 "xxxxxxxxxxxx_x\n");
 		
-		IslandFieldSearchImpl search = IslandFieldSearchImpl.create(map, new BottomRightFieldSearchingSequence());
+		IslandFieldSearcherImpl search = IslandFieldSearcherImpl.create(map, new BottomRightFieldSearchingSequence());
 		
 		assertEquals(Field.of(11, 0), search.search(Field.of(6, 8)));
 	}
@@ -73,7 +73,7 @@ public class BottomRightFieldSearchTest {
                 "________xxx___\n" +
                 "______________\n");
 		
-		IslandFieldSearchImpl search = IslandFieldSearchImpl.create(map, new BottomRightFieldSearchingSequence());
+		IslandFieldSearcherImpl search = IslandFieldSearcherImpl.create(map, new BottomRightFieldSearchingSequence());
 		
 		assertEquals(Field.of(6, 5), search.search(Field.of(4, 6)));
 	}
@@ -95,7 +95,7 @@ public class BottomRightFieldSearchTest {
                 "___________x__\n" +
                 "___________x__\n");
 		
-		IslandFieldSearchImpl search = IslandFieldSearchImpl.create(map, new BottomRightFieldSearchingSequence());
+		IslandFieldSearcherImpl search = IslandFieldSearcherImpl.create(map, new BottomRightFieldSearchingSequence());
 		
 		assertEquals(Field.of(11, 0), search.search(Field.of(6, 9)));
 	}
