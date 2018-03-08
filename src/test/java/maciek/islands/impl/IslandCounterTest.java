@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import maciek.islands.Field;
@@ -89,6 +90,7 @@ public class IslandCounterTest {
 		assertEquals(BigInteger.valueOf(14), new IslandsCounterImpl(Field.of(100, 100)).countIslands(map));
 	}
 
+	@Ignore
 	@Test
 	public void loadTest() {
 		

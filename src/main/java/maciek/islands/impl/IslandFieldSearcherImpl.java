@@ -31,21 +31,21 @@ public class IslandFieldSearcherImpl implements IslandFieldSearcher {
 
 		FieldSequenceCoastlineFieldConsumer consumer = new FieldSequenceCoastlineFieldConsumer(sequence);
 
-		Field localBest = findLocalBest(anyIslandField);
+		Field localCoastline = findLocalCoastline(anyIslandField);
 
 		while (true) {
 			CoastlineSearchResult result = coastlineFieldSearch
-			        .search(CoastlineFragment.of(localBest, Orientation.LAND_ON_LEFT), consumer);
+			        .search(CoastlineFragment.of(localCoastline, Orientation.LAND_ON_LEFT), consumer);
 
 			if (!result.isLake()) {
 				return result.getSearchedField();
 			}
 
-			localBest = findLocalBest(result.getSearchedField());
+			localCoastline = findLocalCoastline(result.getSearchedField());
 		}
 	}
 
-	private Field findLocalBest(Field field) {
+	private Field findLocalCoastline(Field field) {
 		Field previous = field;
 		while (true) {
 			Field next = getNextField(previous);

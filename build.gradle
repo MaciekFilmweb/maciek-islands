@@ -30,6 +30,6 @@ dependencies {
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	
-	compileOnly('org.projectlombok:lombok:1.16.20')
-	testCompileOnly('org.projectlombok:lombok:1.16.20')
+	compileOnly('org.projectlombok:lombok:1.16.16')
+	testCompileOnly('org.projectlombok:lombok:1.16.16')
 }
